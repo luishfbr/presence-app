@@ -1,0 +1,4 @@
+.background {
+  background: linear-gradient(#003641, #49479d);
+  @apply flex flex-col gap-10 items-center justify-center h-screen mx-auto;
+}

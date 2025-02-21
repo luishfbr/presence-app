@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-
+import styles from "@/app/style/presence.module.css";
 import {
   InputOTP,
   InputOTPGroup,
@@ -24,7 +24,7 @@ export default function Page() {
   const [page, setPage] = React.useState("initial");
   const [foundData, setFoundData] = React.useState<FoundData>();
 
-  const buttonRef = useRef<HTMLButtonElement>(null); 
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleVerify = async () => {
     try {
@@ -72,14 +72,23 @@ export default function Page() {
   }, [value]);
 
   return (
-    <div className="flex flex-col gap-10 items-center justify-center h-screen mx-auto">
+    <div className={styles.background}>
       {page === "initial" && (
         <>
-          <div className="flex flex-col gap-2 text-center">
-            <h1 className="text-6xl font-bold">Seja bem-vindo!</h1>
-            <h3 className="text-muted-foreground text-xl">
-              Insira um CPF ou CNPJ para prosseguir.
-            </h3>
+          <div className="flex flex-col gap-10 items-center">
+            <div className="flex flex-col text-center max-w-[70%]">
+              <h1 className="text-8xl font-bold text-white">SEJA BEM-VINDO</h1>
+              <h2 className="text-4xl font-bold text-white">
+                à Assembleia Geral do Sicoob Uberaba de 2025.
+              </h2>
+            </div>
+            <div className="text-center max-w-[50%]">
+              <p className="text-gray-200 text-[27px]">
+                Acesso exclusivo para cooperados. <br />
+                Insira seu CPF e clique em VERIFICAR REGISTRO para confirmar seu
+                cadastro em nossa base de dados.
+              </p>
+            </div>
           </div>
           <InputOTP
             autoComplete="off"
@@ -113,15 +122,20 @@ export default function Page() {
           </InputOTP>
           <Button
             ref={buttonRef}
-            disabled={value.length !== 11}
+            disabled={value.length !== 11 || loading}
             onClick={handleVerify}
+            variant={"presence"}
+            size={"presence"}
           >
             {!loading ? (
-              "VERIFICAR"
+              "VERIFICAR REGISTRO"
             ) : (
-              <Loader2 className="animate-spin h-10 w-10" />
+              <Loader2 className="animate-spin h-16 w-16" />
             )}
           </Button>
+          <span className="fixed bottom-0 left-0 right-0 text-center mb-2 text-gray-400">
+            © 2025 Sicoob Uberaba. Todos os direitos reservados.
+          </span>
         </>
       )}
       {page === "found" && (

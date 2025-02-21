@@ -1,6 +1,8 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import type { FoundData } from "@/lib/types";
-import { ArrowLeft, Loader2 } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import React from "react";
 import { registryPresence } from "../_actions/server";
 
@@ -68,45 +70,44 @@ export default function FoundPage({
     }
   });
   return (
-    <>
-      <Button
-        onClick={onTimeout}
-        className="absolute top-2 left-2 m-4 font-bold"
-        variant={"outline"}
-      >
-        <ArrowLeft /> Não sou eu...
-      </Button>
-      <div className="flex flex-col gap-4 text-center max-w-[80%]">
-        <h1 className="text-4xl font-bold">
-          Olá,{" "}
-          {data?.name
-            .split(" ")
-            .map((n, i, arr) =>
-              i === 0 || i === arr.length - 1 ? n : n[0] + "."
-            )
-            .join(" ")}
-        </h1>
-        <h3 className="text-2xl text-muted-foreground">
-          É um grande prazer recebê-lo em nossa assembléia, clique em *VALIDAR
-          ENTRADA* para confirmar sua presença.
-        </h3>
+    <div className="flex flex-col items-center justify-center gap-28">
+      <div className="flex flex-col gap-10 items-center max-w-[90%]">
+        <div className="flex flex-col gap-2 text-center max-w-[90%]">
+          <h1 className="text-6xl font-bold text-white">
+            Grande prazer em recebê-lo(a),
+          </h1>
+          <h2 className="text-4xl text-white/90">{data?.name}</h2>
+        </div>
+        <div className="text-center text-3xl text-gray-300 max-w-[60%]">
+          Clique no botão de VALIDAR PRESENÇA e aproveite nosso evento ao
+          máximo, caso contrário aguarde para retornar à página principal
+          automaticamente.
+        </div>
       </div>
-      <Button disabled={loading} onClick={handleConfirm}>
+      <Button
+        variant={"presence"}
+        disabled={loading}
+        onClick={handleConfirm}
+        size={"presence"}
+      >
         {loading ? (
-          <Loader2 className="animate-spin h-10 w-10" />
+          <Loader2 className="animate-spin h-16 w-16" />
         ) : (
           "VALIDAR ENTRADA"
         )}
       </Button>
-      <div className="flex text-center items-center justify-center h-32 w-32 mx-auto border border-border rounded-full">
+      <div className="flex text-center items-center gap-1 justify-center">
+        <span className="text-nowrap text-xl">
+          Retornando para a página principal em
+        </span>
         <p
-          className={`w-full h-full flex items-center justify-center text-6xl ${
-            countdown <= 5 ? "text-red-500" : ""
-          } ${loading === true ? "text-gray-500" : ""}`}
+          className={`text-xl ${countdown <= 5 ? "text-red-400" : ""} ${
+            loading === true ? "text-gray-500" : ""
+          }`}
         >
-          {countdown}
+          {countdown} segundos...
         </p>
       </div>
-    </>
+    </div>
   );
 }

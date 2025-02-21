@@ -7,7 +7,7 @@ interface NotFoundProps {
 }
 
 export default function NotFound({ onTimeout }: NotFoundProps) {
-  const [countdown, setCountdown] = React.useState<number>(10);
+  const [countdown, setCountdown] = React.useState<number>(20);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -25,24 +25,25 @@ export default function NotFound({ onTimeout }: NotFoundProps) {
   }, [onTimeout]);
 
   return (
-    <>
-      <div className="flex flex-col gap-6 text-center max-w-[80%]">
-        <h1 className="text-6xl font-bold">CPF não encontrado!</h1>
-        <span className="text-muted-foreground text-xl">
-          Infelizmente não encontramos registro do valor informado em nosso
-          banco de dados, mas não se preocupe, procure um de nossos ajudantes e
-          faremos o possível para converter esta situação!
+    <div className="flex flex-col gap-44 items-center justify-center">
+      <div className="flex flex-col gap-10 text-center max-w-[75%]">
+        <h1 className="text-6xl font-bold text-white">
+          Não encontramos o CPF inserido, em nossa base de dados
+        </h1>
+        <span className="text-white/90 text-4xl">
+          Fique tranquilo, nossa equipe estará à disposição para entender e
+          resolver sua situação. <br />
+          Apenas cooperados possuem acesso ao nosso evento!
         </span>
       </div>
-      <div className="flex text-center items-center justify-center h-32 w-32 mx-auto border border-border rounded-full">
-        <p
-          className={`w-full h-full flex items-center justify-center text-6xl ${
-            countdown <= 5 ? "text-red-500" : ""
-          } `}
-        >
-          {countdown}
+      <div className="flex text-center items-center gap-1 justify-center">
+        <span className="text-nowrap text-xl">
+          Retornando para a página principal em
+        </span>
+        <p className={`text-xl ${countdown <= 5 ? "text-red-400" : ""} `}>
+          {countdown} segundos...
         </p>
       </div>
-    </>
+    </div>
   );
 }

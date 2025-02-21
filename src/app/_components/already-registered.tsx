@@ -9,7 +9,7 @@ interface AlreadyRegisteredProps {
 export default function AlreadyRegistered({
   onTimeout,
 }: AlreadyRegisteredProps) {
-  const [countdown, setCountdown] = React.useState<number>(10);
+  const [countdown, setCountdown] = React.useState<number>(20);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -27,24 +27,26 @@ export default function AlreadyRegistered({
   }, [onTimeout]);
 
   return (
-    <>
-      <div className="flex flex-col gap-6 text-center max-w-[80%]">
-        <h1 className="text-6xl font-bold">CPF já registrado!</h1>
-        <span className="text-muted-foreground text-xl">
-          Encontramos um registro deste CPF em nossa lista de presença, favor
-          aguardar na fila à esquerda, para que possamos verificar a situação
-          com mais calma.
+    <div className="flex flex-col gap-40 items-center justify-center">
+      <div className="flex flex-col gap-10 text-center max-w-[70%]">
+        <h1 className="text-6xl font-bold">
+          O valor inserido já se encontra registrado em nosso sistema
+        </h1>
+        <span className="text-white/90 text-4xl">
+          Fique tranquilo, nossa equipe estará à disposição para entender e
+          resolver sua situação. <br />
+          Apenas cooperados possuem acesso ao nosso evento!
         </span>
+        <span className="font-bold text-3xl">Extritamente proibido a reutilização de CPF</span>
       </div>
-      <div className="flex text-center items-center justify-center h-32 w-32 mx-auto border border-border rounded-full">
-        <p
-          className={`w-full h-full flex items-center justify-center text-6xl ${
-            countdown <= 5 ? "text-red-500" : ""
-          } `}
-        >
-          {countdown}
+      <div className="flex text-center items-center gap-1 justify-center">
+        <span className="text-nowrap text-xl">
+          Retornando para a página principal em
+        </span>
+        <p className={`text-xl ${countdown <= 5 ? "text-red-400" : ""} `}>
+          {countdown} segundos...
         </p>
       </div>
-    </>
+    </div>
   );
 }

@@ -7,7 +7,7 @@ interface RegisteredProps {
 }
 
 export default function Registered({ onTimeout }: RegisteredProps) {
-  const [countdown, setCountdown] = React.useState<number>(5);
+  const [countdown, setCountdown] = React.useState<number>(10);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -25,22 +25,23 @@ export default function Registered({ onTimeout }: RegisteredProps) {
   }, [onTimeout]);
 
   return (
-    <>
-      <div className="flex flex-col gap-6 text-center max-w-[80%]">
-        <h1 className="text-6xl font-bold">Presença registrada!</h1>
-        <span className="text-muted-foreground text-xl">
-          Aproveite ao máximo o nosso evento!
+    <div className="flex flex-col gap-52 items-center justify-center w-full">
+      <div className="flex flex-col gap-4 text-center max-w-[50%]">
+        <h1 className="text-6xl font-bold text-white">
+          Presença registrada com sucesso!
+        </h1>
+        <span className="text-white/90 text-3xl">
+          Pegue sua pulseira e aproveite ao máximo nosso evento!
         </span>
       </div>
-      <div className="flex text-center items-center justify-center h-32 w-32 mx-auto border border-border rounded-full">
-        <p
-          className={`w-full h-full flex items-center justify-center text-6xl ${
-            countdown <= 5 ? "text-green-900" : ""
-          } `}
-        >
-          {countdown}
+      <div className="flex text-center items-center gap-1 justify-center">
+        <span className="text-nowrap text-xl">
+          Retornando para a página principal em
+        </span>
+        <p className={`text-xl ${countdown <= 5 ? "text-green-400" : ""} `}>
+          {countdown} segundos...
         </p>
       </div>
-    </>
+    </div>
   );
 }

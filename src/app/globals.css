@@ -6,22 +6,6 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@media print {
-  body * {
-    visibility: hidden; /* Oculta tudo exceto o ingresso */
-  }
-  .ticket,
-  .ticket * {
-    visibility: visible; /* Mantém o ingresso visível */
-  }
-  .ticket {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-  }
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
