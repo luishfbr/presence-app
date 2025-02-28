@@ -2,13 +2,6 @@
 
 import React, { useEffect, useRef } from "react";
 import styles from "@/app/style/presence.module.css";
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSeparator,
-  InputOTPSeparatorDot,
-  InputOTPSlot,
-} from "@/components/ui/input-otp";
 import { Button } from "@/components/ui/button";
 import { verifyIfExists } from "./_actions/server";
 import { Loader2 } from "lucide-react";
@@ -17,6 +10,7 @@ import AlreadyRegistered from "./_components/already-registered";
 import NotFound from "./_components/not-found";
 import type { FoundData } from "@/lib/types";
 import Registered from "./_components/registered";
+import InputCpf from "@/components/input-cpf";
 
 export default function Page() {
   const [value, setValue] = React.useState("");
@@ -82,7 +76,7 @@ export default function Page() {
                 à Assembleia Geral do Sicoob Uberaba de 2025.
               </h2>
             </div>
-            <div className="text-center max-w-[50%]">
+            <div className="text-center max-w-[55%]">
               <p className="text-gray-200 text-[27px]">
                 Acesso exclusivo para cooperados. <br />
                 Insira seu CPF e clique em VERIFICAR REGISTRO para confirmar seu
@@ -90,7 +84,7 @@ export default function Page() {
               </p>
             </div>
           </div>
-          <InputOTP
+          {/* <InputOTP
             autoComplete="off"
             maxLength={11}
             value={value}
@@ -119,7 +113,8 @@ export default function Page() {
               <InputOTPSlot index={9} />
               <InputOTPSlot index={10} />
             </InputOTPGroup>
-          </InputOTP>
+          </InputOTP> */}
+          <InputCpf onSetCpf={(cpf) => setValue(cpf)} />
           <Button
             ref={buttonRef}
             disabled={value.length !== 11 || loading}
@@ -133,9 +128,6 @@ export default function Page() {
               <Loader2 className="animate-spin h-16 w-16" />
             )}
           </Button>
-          <span className="fixed bottom-0 left-0 right-0 text-center mb-2 text-gray-400">
-            © 2025 Sicoob Uberaba. Todos os direitos reservados.
-          </span>
         </>
       )}
       {page === "found" && (

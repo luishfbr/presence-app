@@ -2,3 +2,19 @@
   background: linear-gradient(#003641, #49479d);
   @apply flex flex-col gap-10 items-center justify-center h-screen mx-auto;
 }
+
+.inputCpf {
+  @apply h-20 w-20 border-2 border-white rounded-full text-center flex items-center justify-center text-3xl;
+}
+
+.buttonCpf {
+  @apply h-20 w-20 border-2 border-black/40 rounded-md text-center flex items-center justify-center text-4xl bg-black/70 hover:bg-black/40;
+}
+
+.verifyButton {
+  @apply h-20 px-10 border-2 border-white rounded-md text-center flex items-center justify-center text-2xl bg-transparent font-bold disabled:text-white/60 disabled:bg-black/5 disabled:border-white/60 hover:text-gray-400;
+}
+
+.deleteButton {
+  @apply h-20 w-44 border-2 border-white rounded-md text-center flex items-center justify-center text-2xl bg-transparent font-bold hover:text-gray-400;
+}
