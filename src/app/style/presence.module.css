@@ -1,6 +1,6 @@
 .background {
-  background: linear-gradient(#003641, #49479d);
-  @apply flex flex-col gap-10 items-center justify-center h-screen mx-auto;
+  background: white;
+  @apply flex flex-col gap-10 items-center justify-center h-screen w-full mx-auto;
 }
 
 .inputCpf {
@@ -17,4 +17,79 @@
 
 .deleteButton {
   @apply h-20 w-44 border-2 border-white rounded-md text-center flex items-center justify-center text-2xl bg-transparent font-bold hover:text-gray-400;
+}
+
+.button25 {
+  background-color: #003641;
+  border-color: rgb(0, 43, 53);
+  @apply w-[25%] m-0.5 rounded-2xl font-bold text-[4vh] text-white border-x-4 border-t-2 border-b-8 hover:opacity-90;
+}
+
+.button25:active {
+  background-color: #001f27;
+  border-color: rgb(0, 18, 22);
+  margin: 5px;
+}
+
+.button33 {
+  background-color: #003641;
+  border-color: rgb(0, 43, 53);
+  @apply w-[33%] m-0.5 rounded-xl font-bold text-[4vh] text-white border-x-4 border-t-2 border-b-8 hover:opacity-90;
+}
+
+.button33:active {
+  background-color: #001f27;
+  border-color: rgb(0, 18, 22);
+  margin: 5px;
+}
+
+.button66 {
+  background-color: #003641;
+  border-color: rgb(0, 43, 53);
+  @apply w-[67%] m-0.5 rounded-xl font-bold text-[4vh] text-white border-x-4 border-t-2 border-b-8 hover:opacity-90;
+}
+
+.button66:active {
+  background-color: #001f27;
+  border-color: rgb(0, 18, 22);
+  margin: 5px;
+}
+
+.buttonAvancar {
+  background-color: #003641;
+  border-color: rgb(0, 43, 53);
+  @apply w-[33%] m-0.5 rounded-xl font-bold text-[2vh] text-white border-x-4 border-t-2 border-b-8 hover:opacity-90;
+}
+
+.buttonAvancar:active {
+  background-color: #001f27;
+  border-color: rgb(0, 18, 22);
+  margin: 5px;
+}
+
+.buttonApagar {
+  background-color: #003641;
+  border-color: rgb(0, 43, 53);
+  @apply w-[50%] m-0.5 rounded-xl font-bold text-[2vh] text-white border-x-4 border-t-2 border-b-8 hover:opacity-90;
+}
+
+.buttonApagar:active {
+  background-color: #001f27;
+  border-color: rgb(0, 18, 22);
+  margin: 5px;
+}
+
+.disabledButton2 {
+  background-color: #00191e;
+  @apply w-[33%] m-0.5 rounded-xl;
+}
+
+.disabledButton1 {
+  background-color: #00191e;
+  @apply w-[25%] m-0.5 rounded-xl;
+}
+
+.keyboardDiv {
+  border-color: #003641;
+  @apply w-[80%] h-[60%] bg-white rounded-2xl shadow-sm flex flex-col items-center justify-center border-8;
 }
