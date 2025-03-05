@@ -24,6 +24,7 @@ export interface dataToPresence {
   name: string;
   cpfOrCnpj: string;
   cooperadoId: string | null;
+  type: string;
 }
 
 export interface ResToVerify {
@@ -37,4 +38,12 @@ export interface FoundData {
   id: number;
   name: string;
   cpf_or_cnpj: string;
+  type: string;
+}
+
+export interface PresenceListType {
+  name: string;
+  cpf_or_cnpj: string;
+  type: string;
+  cooperadoId: string | null;
 }

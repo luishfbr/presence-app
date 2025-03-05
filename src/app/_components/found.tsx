@@ -28,6 +28,7 @@ export default function FoundPage({
         name: data?.name as string,
         cpfOrCnpj: data?.cpf_or_cnpj as string,
         cooperadoId: "",
+        type: data?.type as string,
       };
 
       const res = await registryPresence(dataToPresence);

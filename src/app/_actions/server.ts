@@ -82,6 +82,22 @@ export const deleteAllSocios = async () => {
   }
 }
 
+export const getPresenceList = async () => {
+  try {
+    const presenceList = await prisma.listaDePresenca.findMany();
+    const data = presenceList.map((presence) => ({
+      name: presence.name,
+      cpf_or_cnpj: presence.cpf_or_cnpj,
+      type: presence.mode,
+      cooperadoId: presence.cooperadoId
+    }));
+
+    return { status: 200, data: data };
+  } catch (error) {
+    console.error(error)
+  }
+}
+
 export const deletePresenceList = async () => {
   try {
     await prisma.listaDePresenca.deleteMany();
@@ -186,11 +202,26 @@ export const registryPresence = async (data: dataToPresence) => {
       data: {
         name: data.name,
         cpf_or_cnpj: data.cpfOrCnpj,
-        cooperadoId: data.cooperadoId
+        cooperadoId: data.cooperadoId,
+        mode: data.type
       }
     })
 
     return { status: 200, data: res };
+  } catch (error) {
+    console.error(error)
+  }
+}
+
+export const deleteSelectedPresence = async (cpfOrCnpj: string) => {
+  try {
+    await prisma.listaDePresenca.delete({
+      where: {
+        cpf_or_cnpj: cpfOrCnpj
+      }
+    });
+
+    return { status: 200 };
   } catch (error) {
     console.error(error)
   }

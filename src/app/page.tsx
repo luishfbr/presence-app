@@ -23,7 +23,13 @@ export default function Page() {
       const res = await verifyIfExists(value as string);
       if (res?.status === 200) {
         setTimeout(() => {
-          setFoundData(res.data);
+          const data = {
+            id: res.data?.id as number,
+            name: res.data?.name as string,
+            cpf_or_cnpj: res.data?.cpf_or_cnpj as string,
+            type: res.type as string,
+          };
+          setFoundData(data);
           setPage("found");
           setValue("");
         }, 1000);

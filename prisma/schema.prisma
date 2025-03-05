@@ -34,4 +34,5 @@ model ListaDePresenca {
   cooperadoId String?
   name        String
   cpf_or_cnpj String  @unique
+  mode        String
 }

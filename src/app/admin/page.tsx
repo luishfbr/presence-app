@@ -24,17 +24,18 @@ import {
   deleteAllConvidados,
   deleteAllSocios,
   getLengths,
-  deletePresenceList,
   getLenghtPresenceList,
 } from "../_actions/server";
 import { useRouter } from "next/navigation";
+import { PresenceList } from "./_components/presence-list";
+import { DeletePresenceList } from "./_components/delete-presencelist";
 
 export default function Page() {
-  const router = useRouter()
+  const router = useRouter();
   const [loadingCooperados, setLoadingCooperados] = React.useState(false);
   const [loadingConvidados, setLoadingConvidados] = React.useState(false);
   const [loadingSocios, setLoadingSocios] = React.useState(false);
-  const [loadingPresenceList, setLoadingPresenceList] = React.useState(false);
+
   const [lengthCooperados, setLengthCooperados] = React.useState(0);
   const [lengthConvidados, setLengthConvidados] = React.useState(0);
   const [lengthSocios, setLengthSocios] = React.useState(0);
@@ -73,18 +74,6 @@ export default function Page() {
       console.error(error);
     } finally {
       setLoadingSocios(false);
-    }
-  };
-
-  const handleDeletePresenceList = async () => {
-    try {
-      setLoadingPresenceList(true);
-      await deletePresenceList();
-      fetchLenght();
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setLoadingPresenceList(false);
     }
   };
 
@@ -139,7 +128,7 @@ export default function Page() {
             onClick={handleDeleteConvidados}
           >
             {!loadingConvidados ? (
-              "Deletar cooperados"
+              "Deletar convidados"
             ) : (
               <Loader2 className="animate-spin h-6 w-6" />
             )}
@@ -150,7 +139,7 @@ export default function Page() {
             onClick={handleDeleteSocios}
           >
             {!loadingSocios ? (
-              "Deletar cooperados"
+              "Deletar sócios"
             ) : (
               <Loader2 className="animate-spin h-6 w-6" />
             )}
@@ -183,21 +172,17 @@ export default function Page() {
           <InsertConvidados onInsert={fetchLenght} />
           <InsertSocios onInsert={fetchLenght} />
         </CardContent>
-        <CardFooter className="w-full items-center flex justify-center">
-          <Button
-            variant={"secondary"}
-            onClick={handleDeletePresenceList}
-            className="w-full"
-          >
-            {!loadingPresenceList ? (
-              `Deletar lista de presença, ${lengthPresenceList} pessoa(s) atualmente registrado(s)`
-            ) :
-              <Loader2 className="animate-spin h-6 w-6" />
-            }
-          </Button>
+        <CardFooter className="w-full gap-2 items-center flex justify-center">
+          <DeletePresenceList
+            lengthPresenceList={lengthPresenceList}
+            fetchLenght={fetchLenght}
+          />
+          <PresenceList />
         </CardFooter>
       </Card>
-      <Button onClick={() => router.push("/")} variant={"link"}>Voltar para a página principal</Button>
+      <Button onClick={() => router.push("/")} variant={"link"}>
+        Voltar para a página principal
+      </Button>
     </div>
   );
 }
