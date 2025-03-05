@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import ReturnButton from "@/components/return-button";
+import styles from "@/app/style/presence.module.css";
 
 interface RegisteredProps {
   onTimeout: () => void;
@@ -26,19 +28,25 @@ export default function Registered({ onTimeout }: RegisteredProps) {
 
   return (
     <div className="flex flex-col gap-52 items-center justify-center w-full">
-      <div className="flex flex-col gap-4 text-center max-w-[50%]">
-        <h1 className="text-6xl font-bold text-white">
+      <ReturnButton onClick={onTimeout} />
+      <div className="flex flex-col gap-20 text-center">
+        <h1 className={styles.alreadyRegisteredh1}>
           Presença registrada com sucesso!
         </h1>
-        <span className="text-white/90 text-3xl">
-          Pegue sua pulseira e aproveite ao máximo nosso evento!
+        <span className={styles.alreadyRegisteredspan}>
+          Pegue sua pulseira e <br />
+          aproveite ao máximo nosso evento!
         </span>
       </div>
       <div className="flex text-center items-center gap-1 justify-center">
-        <span className="text-nowrap text-xl">
-          Retornando para a página principal em
+        <span className="text-nowrap text-xl text-gray-500">
+          Retornando automaticamente para a página principal em
         </span>
-        <p className={`text-xl ${countdown <= 5 ? "text-green-400" : ""} `}>
+        <p
+          className={`text-xl text-gray-500 ${
+            countdown <= 5 ? "text-green-400" : ""
+          } `}
+        >
           {countdown} segundos...
         </p>
       </div>

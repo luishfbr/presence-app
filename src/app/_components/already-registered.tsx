@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import styles from "@/app/style/presence.module.css";
+import ReturnButton from "@/components/return-button";
 
 interface AlreadyRegisteredProps {
   onTimeout: () => void;
@@ -28,22 +30,29 @@ export default function AlreadyRegistered({
 
   return (
     <div className="flex flex-col gap-40 items-center justify-center">
-      <div className="flex flex-col gap-10 text-center max-w-[70%]">
-        <h1 className="text-6xl font-bold">
-          O valor inserido já se encontra registrado em nosso sistema
+      <ReturnButton onClick={onTimeout} />
+      <div className="flex flex-col gap-10 text-center">
+        <h1 className={styles.alreadyRegisteredh1}>
+          O valor inserido, <br /> já se encontra registrado em nosso sistema
         </h1>
-        <span className="text-white/90 text-4xl">
-          Fique tranquilo, nossa equipe estará à disposição para entender e
-          resolver sua situação. <br />
+        <span className={styles.alreadyRegisteredspan}>
+          Fique tranquilo, nossa equipe estará à disposição <br /> para entender
+          e resolver sua situação. <br />
           Apenas cooperados possuem acesso ao nosso evento!
         </span>
-        <span className="font-bold text-3xl">Extritamente proibido a reutilização de CPF</span>
+        <span className={styles.alreadyRegisteredspan}>
+          Extritamente proibido a reutilização de CPF
+        </span>
       </div>
       <div className="flex text-center items-center gap-1 justify-center">
-        <span className="text-nowrap text-xl">
-          Retornando para a página principal em
+        <span className="text-nowrap text-gray-500 text-xl">
+          Retornando automaticamente para a página principal em
         </span>
-        <p className={`text-xl ${countdown <= 5 ? "text-red-400" : ""} `}>
+        <p
+          className={`text-xl text-gray-500 ${
+            countdown <= 5 ? "text-red-400" : ""
+          } `}
+        >
           {countdown} segundos...
         </p>
       </div>

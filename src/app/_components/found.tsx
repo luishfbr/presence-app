@@ -1,10 +1,11 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import type { FoundData } from "@/lib/types";
 import { Loader2 } from "lucide-react";
 import React from "react";
 import { registryPresence } from "../_actions/server";
+import styles from "@/app/style/presence.module.css";
+import ReturnButton from "@/components/return-button";
 
 interface FoundPageProps {
   data: FoundData | null;
@@ -70,40 +71,37 @@ export default function FoundPage({
     }
   });
   return (
-    <div className="flex flex-col items-center justify-center gap-28">
-      <div className="flex flex-col gap-10 items-center max-w-[90%]">
-        <div className="flex flex-col gap-2 text-center max-w-[90%]">
-          <h1 className="text-6xl font-bold text-white">
-            Grande prazer em recebê-lo(a),
-          </h1>
-          <h2 className="text-4xl text-white/90">{data?.name}</h2>
+    <div className="flex flex-col items-center justify-center gap-24">
+      <ReturnButton onClick={onTimeout} />
+      <div className="flex flex-col gap-10 items-center">
+        <div className="flex flex-col gap-2 text-center">
+          <h1 className={styles.foundh1}>Grande prazer em recebê-lo(a),</h1>
+          <h2 className={styles.foundh2}>{data?.name}</h2>
         </div>
-        <div className="text-center text-3xl text-gray-300 max-w-[60%]">
+        <div className={styles.foundspan}>
           Clique no botão de VALIDAR PRESENÇA e aproveite nosso evento ao
-          máximo, caso contrário aguarde para retornar à página principal
-          automaticamente.
+          máximo.
         </div>
       </div>
-      <Button
-        variant={"presence"}
+      <button
         disabled={loading}
         onClick={handleConfirm}
-        size={"presence"}
+        className={styles.verifyButton}
       >
         {loading ? (
           <Loader2 className="animate-spin h-16 w-16" />
         ) : (
           "VALIDAR ENTRADA"
         )}
-      </Button>
+      </button>
       <div className="flex text-center items-center gap-1 justify-center">
-        <span className="text-nowrap text-xl">
-          Retornando para a página principal em
+        <span className="text-nowrap text-gray-400 text-xl">
+          Retornando para a página principal automaticamente em
         </span>
         <p
-          className={`text-xl ${countdown <= 5 ? "text-red-400" : ""} ${
-            loading === true ? "text-gray-500" : ""
-          }`}
+          className={`text-xl text-gray-400 ${
+            countdown <= 5 ? "text-red-400" : ""
+          } ${loading === true ? "text-gray-900" : ""}`}
         >
           {countdown} segundos...
         </p>

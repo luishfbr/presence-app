@@ -2,9 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import styles from "@/app/style/presence.module.css";
-import { Button } from "@/components/ui/button";
 import { verifyIfExists } from "./_actions/server";
-import { Loader2 } from "lucide-react";
 import FoundPage from "./_components/found";
 import AlreadyRegistered from "./_components/already-registered";
 import NotFound from "./_components/not-found";
@@ -15,7 +13,6 @@ import NumericKeyboard from "@/components/numeric-keyboard";
 
 export default function Page() {
   const [value, setValue] = React.useState("");
-  const [loading, setLoading] = React.useState(false);
   const [page, setPage] = React.useState("initial");
   const [foundData, setFoundData] = React.useState<FoundData>();
 
@@ -23,14 +20,12 @@ export default function Page() {
 
   const handleVerify = async () => {
     try {
-      setLoading(true);
       const res = await verifyIfExists(value as string);
       if (res?.status === 200) {
         setTimeout(() => {
           setFoundData(res.data);
           setPage("found");
           setValue("");
-          setLoading(false);
         }, 1000);
       }
 
@@ -38,7 +33,6 @@ export default function Page() {
         setTimeout(() => {
           setPage("already-registered");
           setValue("");
-          setLoading(false);
         }, 1000);
       }
 
@@ -46,7 +40,6 @@ export default function Page() {
         setTimeout(() => {
           setPage("not-found");
           setValue("");
-          setLoading(false);
         }, 1000);
       }
     } catch (error) {
@@ -69,12 +62,19 @@ export default function Page() {
   return (
     <div className={styles.background}>
       {page === "initial" && (
-        <div className="justify-center items-center mx-auto w-full h-full flex flex-row">
-          <div className="flex w-[70%] items-center justify-center border border-border rounded-md h-full">
-            1
+        <div className="justify-center items-center w-full h-full flex flex-row gap-10">
+          <div className="flex flex-col w-[70%] gap-16 items-center justify-center h-full ml-10">
+            <div className="text-center">
+              <h1 className={styles.h1}>Seja bem-vindo</h1>
+              <h2 className={styles.h2}>
+                à Assembléia Geral do Sicoob Uberaba de 2025
+              </h2>
+            </div>
+            <span className={styles.span}>Digite seu CPF</span>
+            <InputCpf cpf={value} />
           </div>
-          <div className="flex w-[30%] items-center justify-center border border-border rounded-md h-full">
-            <NumericKeyboard />
+          <div className="flex w-[30%] items-center justify-center h-full">
+            <NumericKeyboard onSetCpf={setValue} confirm={handleVerify} />
           </div>
         </div>
       )}
