@@ -68,8 +68,8 @@ export default function Page() {
   return (
     <div className={styles.background}>
       {page === "initial" && (
-        <div className="justify-center items-center w-full h-full flex flex-row gap-10">
-          <div className="flex flex-col w-[70%] gap-16 items-center justify-center h-full ml-10">
+        <div className="justify-center items-center w-full h-full gap-10 flex flex-col">
+          <div className="flex flex-col gap-16 items-center w-full justify-end h-full">
             <div className="text-center">
               <h1 className={styles.h1}>Seja bem-vindo</h1>
               <h2 className={styles.h2}>
@@ -79,7 +79,7 @@ export default function Page() {
             <span className={styles.span}>Digite seu CPF</span>
             <InputCpf cpf={value} />
           </div>
-          <div className="flex w-[30%] items-center justify-center h-full">
+          <div className="flex flex-col w-full items-center justify-start h-full">
             <NumericKeyboard onSetCpf={setValue} confirm={handleVerify} />
           </div>
         </div>

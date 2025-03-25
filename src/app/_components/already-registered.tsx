@@ -11,7 +11,7 @@ interface AlreadyRegisteredProps {
 export default function AlreadyRegistered({
   onTimeout,
 }: AlreadyRegisteredProps) {
-  const [countdown, setCountdown] = React.useState<number>(20);
+  const [countdown, setCountdown] = React.useState<number>(10);
 
   React.useEffect(() => {
     const timer = setInterval(() => {

@@ -6,7 +6,7 @@
 
 .inputCpf {
   background-color: #003641;
-  @apply h-[10vh] w-[5vw] text-white rounded-xl text-center flex items-center justify-center text-[3vw] shadow-xl;
+  @apply h-[5vh] w-[6.8vw] text-white rounded-xl text-center flex items-center justify-center text-[3vw] shadow-xl;
 }
 
 .icons {
@@ -16,17 +16,17 @@
 
 .h1 {
   color: #003641;
-  @apply text-[13vh] font-bold p-0 m-0 leading-none;
+  @apply text-[13vw] font-bold p-0 m-0 leading-none;
 }
 
 .h2 {
   color: #003641;
-  @apply text-[4vh] font-bold p-0 m-0 leading-none;
+  @apply text-[4vw] font-bold p-0 m-0 leading-none;
 }
 
 .span {
   color: #003641;
-  @apply text-[5vh] font-bold p-0 m-0 leading-none opacity-80;
+  @apply text-[6vw] font-bold p-0 m-0 leading-none opacity-80;
 }
 
 .buttonCpf {
@@ -39,7 +39,7 @@
 
 .keyboardDiv {
   border-color: white;
-  @apply w-full mr-10 h-[60%] rounded-2xl bg-white flex flex-col items-center justify-center border-double border-8;
+  @apply w-[50%] h-[70%] rounded-2xl bg-white flex flex-col items-center justify-center border-double border-8;
 }
 
 .divTable {
@@ -49,7 +49,7 @@
 
 .numericButton {
   background-color: #003641;
-  @apply w-full h-full rounded-xl text-[1.3vw] font-bold text-white flex flex-row gap-2 items-center justify-center text-center;
+  @apply w-full h-full rounded-xl text-[3.2vw] font-bold text-white flex flex-row gap-2 items-center justify-center text-center;
 }
 
 .numericButton:active {
@@ -67,32 +67,32 @@
 
 .foundh1 {
   color: #003641;
-  @apply font-bold text-[9vh] m-0 leading-none text-nowrap;
+  @apply font-bold text-[6.4vw] m-0 leading-none text-nowrap;
 }
 
 .alreadyRegisteredh1 {
   color: #003641;
-  @apply font-bold text-[6vh] m-0 leading-none text-nowrap;
+  @apply font-bold text-[4.5vw] m-0 leading-none text-nowrap;
 }
 
 .foundh2 {
   color: #003641;
-  @apply font-bold text-[6vh] m-0 leading-none;
+  @apply font-bold text-[5vw] m-0 leading-none;
 }
 
 .foundspan {
   color: #003641;
-  @apply font-bold text-[3vh] m-0 leading-none max-w-[50vw] text-center opacity-50;
+  @apply font-bold text-[5vw] m-0 leading-none max-w-[90vw] text-center opacity-50;
 }
 
 .alreadyRegisteredspan {
   color: #003641;
-  @apply font-bold text-[4vh] m-0 leading-none text-center opacity-50;
+  @apply font-bold text-[4vw] m-0 leading-none text-center opacity-50;
 }
 
 .returnButton {
   background-color: #003641;
-  @apply text-white fixed top-2 left-2 px-[2vw] py-[1vh] text-[2vw] font-bold rounded-xl shadow-md;
+  @apply text-white fixed top-2 left-2 px-[4vw] py-[1vh] text-[3vw] font-bold rounded-xl shadow-md;
 }
 
 .returnButton:active {
@@ -101,7 +101,7 @@
 
 .verifyButton {
   background-color: #003641;
-  @apply text-white px-[2vw] py-[1vh] text-[2vw] font-bold rounded-xl shadow-md;
+  @apply text-white px-[3vw] py-[1vh] text-[4vw] font-bold rounded-xl shadow-md;
 }
 
 .verifyButton:active {

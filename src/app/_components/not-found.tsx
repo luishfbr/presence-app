@@ -9,7 +9,7 @@ interface NotFoundProps {
 }
 
 export default function NotFound({ onTimeout }: NotFoundProps) {
-  const [countdown, setCountdown] = React.useState<number>(20);
+  const [countdown, setCountdown] = React.useState<number>(20000);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
