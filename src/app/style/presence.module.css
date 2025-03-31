@@ -1,7 +1,5 @@
 .background {
-  background-image: url("/Background.png");
-  background-size: cover;
-  @apply flex flex-col gap-10 items-center justify-center h-screen w-full mx-auto;
+  @apply flex flex-col gap-10 items-center justify-center h-screen w-full mx-auto bg-white;
 }
 
 .inputCpf {
@@ -15,17 +13,32 @@
 }
 
 .h1 {
-  color: #003641;
-  @apply text-[13vw] font-bold p-0 m-0 leading-none;
+  color: #483c89;
+  @apply text-[15vw] font-bold p-0 m-0 leading-none;
 }
 
 .h2 {
   color: #003641;
-  @apply text-[4vw] font-bold p-0 m-0 leading-none;
+  @apply text-[5vw] font-bold p-0 m-0 leading-none;
+}
+
+.pnumbers {
+  color: #483c89;
+  @apply text-[6vh] font-bold px-[0.5vw] m-0 leading-none;
+}
+
+.p {
+  color: #483c89;
+  @apply text-[6vw] font-bold m-0 leading-none opacity-30;
+}
+
+.divinput {
+  border-color: #483c89;
+  @apply flex flex-row gap-2 items-center justify-center w-[80%] h-[15vh] border-[0.5vw] rounded-[2vw];
 }
 
 .span {
-  color: #003641;
+  color: #483c89;
   @apply text-[6vw] font-bold p-0 m-0 leading-none opacity-80;
 }
 
@@ -33,65 +46,96 @@
   @apply h-20 w-20 border-2 border-black/40 rounded-md text-center flex items-center justify-center text-4xl bg-black/70 hover:bg-black/40;
 }
 
-.deleteButton {
-  @apply h-20 w-44 border-2 border-white rounded-md text-center flex items-center justify-center text-2xl bg-transparent font-bold hover:text-gray-400;
-}
-
 .keyboardDiv {
-  border-color: white;
-  @apply w-[50%] h-[70%] rounded-2xl bg-white flex flex-col items-center justify-center border-double border-8;
+  @apply w-[50%] h-full  flex flex-col items-center justify-center gap-20;
 }
 
-.divTable {
-  border-color: #003641;
-  @apply w-full h-full flex items-center justify-center rounded-xl border-8 bg-white;
+.table {
+  @apply w-[50%] h-[70%]  flex flex-col items-center justify-center;
+}
+
+.verifyButton {
+  background-color: #483c89;
+  @apply w-[50%] h-[20vh] rounded-xl text-[2.5vh] font-bold text-white flex flex-row gap-2 items-center justify-center text-center;
+}
+
+.verifyButton:active {
+  background-color: #120d31;
+}
+
+.verifyButton:disabled {
+  background-color: #120d31;
+  color: #2a4044;
+}
+
+.validateButton {
+  background-color: #483c89;
+  @apply w-[60%] h-[7vh] rounded-xl text-[2.5vh] font-bold text-white flex flex-row gap-2 items-center justify-center text-center;
+}
+
+.validateButton:active {
+  background-color: #120d31;
+}
+
+.deleteButton {
+  background-color: #483c89;
+  @apply w-full h-full rounded-full text-[2.5vh] font-bold text-white flex flex-row gap-2 items-center justify-center text-center;
+}
+
+.deleteButton:active {
+  background-color: #120d31;
+}
+
+.deleteButton:disabled {
+  background-color: #120d31;
+  color: #2a4044;
+  width: 100%;
+  height: 100%;
 }
 
 .numericButton {
-  background-color: #003641;
-  @apply w-full h-full rounded-xl text-[3.2vw] font-bold text-white flex flex-row gap-2 items-center justify-center text-center;
+  background-color: #483c89;
+  @apply w-full h-full rounded-full text-[4vh] font-bold text-white flex flex-row gap-2 items-center justify-center text-center;
 }
 
 .numericButton:active {
-  background-color: #002025;
-  width: 98%;
-  height: 98%;
+  background-color: #120d31;
 }
 
 .numericButton:disabled {
-  background-color: #001a1f;
+  background-color: #120d31;
   color: #2a4044;
   width: 100%;
   height: 100%;
 }
 
 .foundh1 {
-  color: #003641;
+  color: #483c89;
   @apply font-bold text-[6.4vw] m-0 leading-none text-nowrap;
 }
 
 .alreadyRegisteredh1 {
-  color: #003641;
+  color: #483c89;
   @apply font-bold text-[4.5vw] m-0 leading-none text-nowrap;
 }
 
 .foundh2 {
-  color: #003641;
+  color: #483c89;
   @apply font-bold text-[5vw] m-0 leading-none;
 }
 
 .foundspan {
-  color: #003641;
+  color: #483c89;
   @apply font-bold text-[5vw] m-0 leading-none max-w-[90vw] text-center opacity-50;
 }
 
 .alreadyRegisteredspan {
-  color: #003641;
+  color: #483c89;
   @apply font-bold text-[4vw] m-0 leading-none text-center opacity-50;
 }
 
 .returnButton {
-  background-color: #003641;
+  background-color: #483c89;
   @apply text-white fixed top-2 left-2 px-[4vw] py-[1vh] text-[3vw] font-bold rounded-xl shadow-md;
 }
 
@@ -99,11 +143,6 @@
   background-color: #002025;
 }
 
-.verifyButton {
-  background-color: #003641;
-  @apply text-white px-[3vw] py-[1vh] text-[4vw] font-bold rounded-xl shadow-md;
-}
-
-.verifyButton:active {
-  background-color: #002025;
+.td {
+  @apply w-[8vw] h-[7vh] p-[2px];
 }

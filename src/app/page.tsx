@@ -10,16 +10,19 @@ import type { FoundData } from "@/lib/types";
 import Registered from "./_components/registered";
 import InputCpf from "@/components/input-cpf";
 import NumericKeyboard from "@/components/numeric-keyboard";
+import { Loader2 } from "lucide-react";
 
 export default function Page() {
   const [value, setValue] = React.useState("");
   const [page, setPage] = React.useState("initial");
   const [foundData, setFoundData] = React.useState<FoundData>();
+  const [isLoading, setIsLoading] = React.useState(false);
 
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleVerify = async () => {
     try {
+      setIsLoading(true);
       const res = await verifyIfExists(value as string);
       if (res?.status === 200) {
         setTimeout(() => {
@@ -30,6 +33,7 @@ export default function Page() {
             type: res.type as string,
           };
           setFoundData(data);
+          setIsLoading(false);
           setPage("found");
           setValue("");
         }, 1000);
@@ -37,6 +41,7 @@ export default function Page() {
 
       if (res?.status === 402) {
         setTimeout(() => {
+          setIsLoading(false);
           setPage("already-registered");
           setValue("");
         }, 1000);
@@ -44,6 +49,7 @@ export default function Page() {
 
       if (res?.status === 404) {
         setTimeout(() => {
+          setIsLoading(false);
           setPage("not-found");
           setValue("");
         }, 1000);
@@ -68,19 +74,25 @@ export default function Page() {
   return (
     <div className={styles.background}>
       {page === "initial" && (
-        <div className="justify-center items-center w-full h-full gap-10 flex flex-col">
-          <div className="flex flex-col gap-16 items-center w-full justify-end h-full">
+        <div className="justify-center items-center w-full h-full flex flex-col">
+          <div className="flex flex-col gap-[4.5vh] items-center w-full justify-center h-[80%]">
             <div className="text-center">
-              <h1 className={styles.h1}>Seja bem-vindo</h1>
-              <h2 className={styles.h2}>
-                à Assembléia Geral do Sicoob Uberaba de 2025
-              </h2>
+              <h1 className={styles.h1}>Bem-vindo!</h1>
+              <span className={styles.span}>à Assembleia Geral de 2025</span>
             </div>
-            <span className={styles.span}>Digite seu CPF</span>
             <InputCpf cpf={value} />
-          </div>
-          <div className="flex flex-col w-full items-center justify-start h-full">
-            <NumericKeyboard onSetCpf={setValue} confirm={handleVerify} />
+            <NumericKeyboard onSetCpf={setValue} isLoading={isLoading} />
+            <button
+              onClick={handleVerify}
+              disabled={value.length < 11 || isLoading}
+              className={styles.verifyButton}
+            >
+              {isLoading ? (
+                <Loader2 className="h-[6vh] w-[7vw] animate-spin" />
+              ) : (
+                "Verificar"
+              )}
+            </button>
           </div>
         </div>
       )}

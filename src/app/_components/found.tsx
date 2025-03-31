@@ -18,7 +18,7 @@ export default function FoundPage({
   onTimeout,
   onRegister,
 }: FoundPageProps) {
-  const [countdown, setCountdown] = React.useState<number>(20);
+  const [countdown, setCountdown] = React.useState<number>(15);
   const [loading, setLoading] = React.useState(false);
 
   const handleConfirm = async () => {
@@ -87,7 +87,7 @@ export default function FoundPage({
       <button
         disabled={loading}
         onClick={handleConfirm}
-        className={styles.verifyButton}
+        className={styles.validateButton}
       >
         {loading ? (
           <Loader2 className="animate-spin h-16 w-16" />
