@@ -6,6 +6,7 @@ import React from "react";
 import { registryPresence } from "../_actions/server";
 import styles from "@/app/style/presence.module.css";
 import ReturnButton from "@/components/return-button";
+import Count from "@/components/count";
 
 interface FoundPageProps {
   data: FoundData | null;
@@ -18,7 +19,7 @@ export default function FoundPage({
   onTimeout,
   onRegister,
 }: FoundPageProps) {
-  const [countdown, setCountdown] = React.useState<number>(15);
+  const [countdown, setCountdown] = React.useState<number>(10);
   const [loading, setLoading] = React.useState(false);
 
   const handleConfirm = async () => {
@@ -72,10 +73,10 @@ export default function FoundPage({
     }
   });
   return (
-    <div className="flex flex-col items-center justify-center gap-24">
+    <div className="flex flex-col items-center justify-center gap-[14vh]">
       <ReturnButton onClick={onTimeout} />
-      <div className="flex flex-col gap-10 items-center">
-        <div className="flex flex-col gap-2 text-center">
+      <div className="flex flex-col gap-[2vh] items-center">
+        <div className="flex flex-col text-center">
           <h1 className={styles.foundh1}>Grande prazer em recebê-lo(a),</h1>
           <h2 className={styles.foundh2}>{data?.name}</h2>
         </div>
@@ -95,18 +96,7 @@ export default function FoundPage({
           "VALIDAR ENTRADA"
         )}
       </button>
-      <div className="flex text-center items-center gap-1 justify-center">
-        <span className="text-nowrap text-gray-400 text-xl">
-          Retornando para a página principal automaticamente em
-        </span>
-        <p
-          className={`text-xl text-gray-400 ${
-            countdown <= 5 ? "text-red-400" : ""
-          } ${loading === true ? "text-gray-900" : ""}`}
-        >
-          {countdown} segundos...
-        </p>
-      </div>
+      <Count countdown={countdown} loading={loading} />
     </div>
   );
 }

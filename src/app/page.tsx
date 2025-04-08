@@ -76,7 +76,7 @@ export default function Page() {
       {page === "initial" && (
         <div className="justify-center items-center w-full h-full flex flex-col">
           <div className="flex flex-col gap-[4.5vh] items-center w-full justify-center h-[80%]">
-            <div className="text-center">
+            <div className={styles.titlediv}>
               <h1 className={styles.h1}>Bem-vindo!</h1>
               <span className={styles.span}>à Assembleia Geral de 2025</span>
             </div>

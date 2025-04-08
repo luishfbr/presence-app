@@ -3,13 +3,14 @@
 import React from "react";
 import styles from "@/app/style/presence.module.css";
 import ReturnButton from "@/components/return-button";
+import Count from "@/components/count";
 
 interface NotFoundProps {
   onTimeout: () => void;
 }
 
 export default function NotFound({ onTimeout }: NotFoundProps) {
-  const [countdown, setCountdown] = React.useState<number>(15);
+  const [countdown, setCountdown] = React.useState<number>(10);
 
   React.useEffect(() => {
     const timer = setInterval(() => {
@@ -27,9 +28,9 @@ export default function NotFound({ onTimeout }: NotFoundProps) {
   }, [onTimeout]);
 
   return (
-    <div className="flex flex-col gap-44 items-center justify-center">
+    <div className="flex flex-col gap-[4vh] items-center justify-center">
       <ReturnButton onClick={onTimeout} />
-      <div className="flex flex-col gap-20 text-center">
+      <div className="flex flex-col gap-[4vh] text-center">
         <h1 className={styles.alreadyRegisteredh1}>
           Não encontramos o CPF inserido, <br /> em nossa base de dados
         </h1>
@@ -39,18 +40,7 @@ export default function NotFound({ onTimeout }: NotFoundProps) {
           Apenas cooperados possuem acesso ao nosso evento!
         </span>
       </div>
-      <div className="flex text-center items-center gap-1 justify-center">
-        <span className="text-nowrap text-xl text-gray-500">
-          Retornando automaticamente para a página principal em
-        </span>
-        <p
-          className={`text-xl text-gray-500 ${
-            countdown <= 5 ? "text-red-400" : ""
-          } `}
-        >
-          {countdown} segundos...
-        </p>
-      </div>
+      <Count countdown={countdown} loading={false} />
     </div>
   );
 }
