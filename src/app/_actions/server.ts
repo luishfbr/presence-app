@@ -57,10 +57,14 @@ export const deleteAllConvidados = async () => {
 
 export const insertSocios = async (socios: Socios[]) => {
   try {
-    const data = socios.map((socios) => ({
-      name: socios.name,
-      cpf_or_cnpj: socios.cpfOrCnpj,
-      cooperadoId: socios.cooperadoId
+    const uniqueSocios = Array.from(
+      new Map(socios.map((socio) => [socio.cpfOrCnpj, socio])).values()
+    );
+
+    const data = uniqueSocios.map((socio) => ({
+      name: socio.name,
+      cpf_or_cnpj: socio.cpfOrCnpj,
+      cooperadoId: socio.cooperadoId,
     }));
 
     await prisma.socioCooperado.createMany({
@@ -69,9 +73,9 @@ export const insertSocios = async (socios: Socios[]) => {
 
     return { status: 200 };
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
-}
+};
 
 export const deleteAllSocios = async () => {
   try {

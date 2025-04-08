@@ -53,7 +53,7 @@ export function InsertSocios({ onInsert }: InsertProps) {
     reader.onload = ({ target }) => {
       if (!target?.result) return;
       Papa.parse(target.result as string, {
-        header: true, // Mantém os cabeçalhos como chaves no objeto
+        header: true,
         skipEmptyLines: true,
         complete: (result) => {
           setData(result.data as Socios[]);
@@ -97,9 +97,7 @@ export function InsertSocios({ onInsert }: InsertProps) {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button disabled className="w-full">
-          Inserir Sócios
-        </Button>
+        <Button className="w-full">Inserir Sócios</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[525px]">
         <DialogHeader>

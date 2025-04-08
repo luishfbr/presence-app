@@ -137,7 +137,6 @@ export default function Page() {
             className="w-full"
             variant={"destructive"}
             onClick={handleDeleteSocios}
-            disabled
           >
             {!loadingSocios ? (
               "Deletar sócios"
@@ -165,7 +164,6 @@ export default function Page() {
             variant={"outline"}
             className="w-full"
             onClick={handleDownloadSocioCooperados}
-            disabled
           >
             <File />
             Sócio de Cooperados
