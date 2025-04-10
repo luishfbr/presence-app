@@ -75,14 +75,12 @@ export default function FoundPage({
   return (
     <div className="flex flex-col items-center justify-center gap-[14vh]">
       <ReturnButton onClick={onTimeout} />
-      <div className="flex flex-col gap-[2vh] items-center">
+      <div className="flex flex-col gap-[0.5vh] items-center">
         <div className="flex flex-col text-center">
-          <h1 className={styles.foundh1}>Grande prazer em recebê-lo(a),</h1>
-          <h2 className={styles.foundh2}>{data?.name}</h2>
+          <h2 className={styles.foundh2}>{data?.name},</h2>
         </div>
         <div className={styles.foundspan}>
-          Clique no botão de VALIDAR PRESENÇA e aproveite nosso evento ao
-          máximo.
+          clique no botão abaixo para validar sua entrada.
         </div>
       </div>
       <button

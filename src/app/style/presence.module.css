@@ -17,7 +17,7 @@
 }
 
 .h1 {
-  @apply text-[15vw] font-bold p-0 m-0 leading-none text-white;
+  @apply text-[14vw] font-bold p-0 m-0 leading-none text-white;
 }
 
 .h2 {
@@ -30,7 +30,7 @@
 }
 
 .p {
-  @apply text-[6vw] font-bold m-0 leading-none opacity-70 text-white;
+  @apply text-[6vw] font-bold m-0 leading-none opacity-50 text-white;
 }
 
 .titlediv {
@@ -42,7 +42,7 @@
 }
 
 .span {
-  @apply text-[6vw] font-bold p-0 m-0 leading-none opacity-80 text-white/80;
+  @apply text-[6vw] font-bold p-0 m-0 leading-none opacity-95 text-white/80;
 }
 
 .buttonCpf {
@@ -119,11 +119,11 @@
 }
 
 .alreadyRegisteredh1 {
-  @apply font-bold text-[4.5vw] m-0 leading-none text-nowrap text-white;
+  @apply font-bold text-[4vw] m-0 text-white;
 }
 
 .foundh2 {
-  @apply font-bold text-[5vw] m-0 leading-none text-white;
+  @apply font-bold text-[4.5vw] m-0 leading-none text-white;
 }
 
 .foundspan {
@@ -131,7 +131,7 @@
 }
 
 .alreadyRegisteredspan {
-  @apply font-bold text-[4vw] m-0 leading-none text-center opacity-80 text-white;
+  @apply font-bold text-[4vw] m-0 px-[1vw] leading-none text-center opacity-90 text-white;
 }
 
 .returnButton {

@@ -28,16 +28,17 @@ export default function NotFound({ onTimeout }: NotFoundProps) {
   }, [onTimeout]);
 
   return (
-    <div className="flex flex-col gap-[4vh] items-center justify-center">
+    <div className="flex flex-col gap-[10vh] items-center justify-center">
       <ReturnButton onClick={onTimeout} />
       <div className="flex flex-col gap-[4vh] text-center">
         <h1 className={styles.alreadyRegisteredh1}>
-          Não encontramos o CPF inserido, <br /> em nossa base de dados
+          Que pena! Seu CPF não foi localizado em nossa base de cooperados.{" "}
+          <br /> Nossa equipe está pronta para ajudar a entender e resolver essa
+          questão.
         </h1>
         <span className={styles.alreadyRegisteredspan}>
-          Fique tranquilo, nossa equipe estará à disposição <br /> para entender
-          e resolver sua situação. <br />
-          Apenas cooperados possuem acesso ao nosso evento!
+          Atenção: Esta assembleia é exclusiva a cooperados do Sicoob Uberaba AG
+          3178.
         </span>
       </div>
       <Count countdown={countdown} loading={false} />

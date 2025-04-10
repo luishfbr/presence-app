@@ -77,8 +77,8 @@ export default function Page() {
         <div className="justify-center items-center w-full h-full flex flex-col">
           <div className="flex flex-col gap-[4.5vh] items-center w-full justify-center h-[80%]">
             <div className={styles.titlediv}>
-              <h1 className={styles.h1}>Bem-vindo!</h1>
-              <span className={styles.span}>à Assembleia Geral de 2025</span>
+              <h1 className={styles.h1}>Bem-vindo(a)</h1>
+              <span className={styles.span}>Assembleia Geral 2025</span>
             </div>
             <InputCpf cpf={value} />
             <NumericKeyboard onSetCpf={setValue} isLoading={isLoading} />

@@ -32,17 +32,15 @@ export default function AlreadyRegistered({
   return (
     <div className="flex flex-col gap-[10vh] items-center justify-center">
       <ReturnButton onClick={onTimeout} />
-      <div className="flex flex-col gap-[4vh] text-center">
+      <div className="flex flex-col gap-[2vh] text-center">
         <h1 className={styles.alreadyRegisteredh1}>
-          O valor inserido, <br /> já se encontra registrado em nosso sistema
+          Identificamos que seu cadastro, <br /> já está registrado!
         </h1>
         <span className={styles.alreadyRegisteredspan}>
-          Fique tranquilo, nossa equipe estará à disposição <br /> para entender
-          e resolver sua situação. <br />
-          Apenas cooperados possuem acesso ao nosso evento!
+          Conte com nossa equipe para solucionar sua questão da melhor forma.
         </span>
         <span className={styles.alreadyRegisteredspan}>
-          Extritamente proibido a reutilização de CPF
+          Atenção: Informamos que a reutilização do CPF é proibida.
         </span>
       </div>
       <Count countdown={countdown} loading={false} />
